@@ -7,18 +7,16 @@ const questions = require("./utils/questions");
 
 
 // TODO: Create a function to write README file
-function writeToFile('README.md', data) {};
+function writeToFile('README.md', data);
 
 // TODO: Create a function to initialize app
 function init() {
-    try{const answers =  inquirer.prompt(questions);
+    const answers =  inquirer.prompt(questions);
     // answers.licenseBadge = licenseBadge(answers.license);
     let readMeData = generateMarkdown(answers)
  fs.writeFile("created-README.md", readMeData);
-} catch(err){
-    throw err;
 }
-}
+
 
 // Function call to initialize app
 init();
