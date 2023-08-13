@@ -16,8 +16,8 @@ const questions = [
     },
     {
       type: "input",
-      message: "What are the installation instructions for your project?",
-      name: "installation",
+      message: "List the collaborators for a project, if you have any, otherwise type NA.",
+      name: "Collab",
     },
     {
       type: "input",
