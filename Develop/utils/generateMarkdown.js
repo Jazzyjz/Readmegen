@@ -22,7 +22,8 @@ function renderLicenseSection(license) {}
 
 //TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return   `#
+  ${data.title}
   ${data.description}
   ${data.licenseBadge}
 
@@ -91,7 +92,6 @@ function generateMarkdown(data) {
     - Push your branch (git push)
     - Create a new Pull Request
   
-    Following a code review, your feature will be merged.
   
   
   ---
