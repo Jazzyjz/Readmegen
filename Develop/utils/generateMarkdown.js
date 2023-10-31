@@ -1,94 +1,84 @@
-
+const fs = require('fs');
 // TODO: Create a function that returns a license badge based on which license is passed in
 //  If there is no license, return an empty string
-// function renderLicenseBadge(license) {
-//   if (license != 'MIT,'){
-//     return('')
-//   }
-// }
-
-// //  TODO: Create a function that returns the license link
-// //  If there is no license, return an empty string
-// function renderLicenseLink(license) {
-//   FileSystem.
-//   if (license != 'MIT,'){
-//     return('')
-//   }
-// }
+function renderLicenseBadge(license) {
+  if (license === "MIT"){
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+  }
+  else if(license ==="Mozilla"){
+    return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+  }
+  else if(license =='Apache'){
+    return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+  }
+  else if(license =='Boost'){
+      return '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)'
+    }
+  else if(license == 'GNU AGPLv3'){
+    return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)'
+    }
+    else if(license == 'GNU GPLv3'){
+      return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)'
+      }
+      else if(license == 'IBM'){
+        return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+        }
+        else if(license == 'ISC'){
+          return '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)'
+          }
+          if (license === "None"){
+            return ""
+          }  
+  else{
+    return ""
+  }
+}
 
 // // TODO: Create a function that returns the license section of README
 // // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === 'None'){
+    return 
+  }
+}
 
 //TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return   `#
-  ${data.title}
+  console.log(data)
 
-  ##Description
+  return   `# ${data.title}
+${renderLicenseBadge(data.license)}  
+
+  ## Description:
   ${data.description}
 
-  #Badges
-  ${data.licenseBadge}
-
-
-  [A deployed version can be viewed here.](${data.URL})
-  
-  ---
-  ## Contents
-  
-  1. [About](#about)
-      1. [User Story](#user%20story)
-      2. [Acceptance criteria](#acceptance%20criteria)
-      3. [Visuals](#visuals)
-      4. [Build](#build)
-  2. [Installation](#installation)
-  3. [License](#license)
-  4. [Contributing](#contributing)
-  5. [Tests](#tests)
-  6. [Authors and acknowledgment](#authors%20and%20acknowledgment)
-  
-  ---
-  ## About
-  
-    ${data.about}
-  
-  ---
-  
-  ## User Story
-    
-  
-  ---
-  
+  ## Table of Contents 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
   ## Installation:
-    ${data.installation}
+  ${data.installation}
+
+  # Usage:
+  ${data.usage}
+
+  # credits
+  ${data.credits}
+
+  # License
+  ${data.license}
+
+  ---
+  
+  ---
+  [A deployed version can be viewed here.](${data.URL})
   
     To clone the repo:
     
-        git clone ${data.clone}
-    
-  ---
-  
-  ## License
-    License used for this project - ${data.license}
-    * For more information on license types, please reference this website
-    for additional licensing information - [https: //choosealicense.com/](https://choosealicense.com/).
-  
-  ---
-  
-  ## Contributing:
-    
-    To contribute to this application, create a pull request.
-    Here are the steps needed for doing that:
-    - Fork the repo
-    - Create a feature branch (git checkout -b NAME-HERE)
-    - Commit your new feature (git commit -m 'Add some feature')
-    - Push your branch (git push)
-    - Create a new Pull Request
-  
-  
-  
+        git clone ${data.repo}
+
   ---
   
   ## Tests:
@@ -103,4 +93,6 @@ function generateMarkdown(data) {
   `;
 }
 
-module.exports = generateMarkdown;
+
+module.exports = generateMarkdown
+
