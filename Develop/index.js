@@ -1,10 +1,8 @@
-// TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require ('inquirer');
 
 const generateMarkdown = require("./utils/generateMarkdown");
 
-//TODO: create an array of questions for user input
 
 const questions = [
         {
@@ -26,11 +24,6 @@ const questions = [
           type: "input",
           message: "List the collaborators for your project.",
           name: "credits",
-        },
-        {
-          type: "input",
-          message: "What is the link to clone the repo?",
-          name: "clone",
         },
         {
           type: "list",
@@ -76,10 +69,8 @@ const questions = [
       ]
  
 
-// TODO: Create a function to initialize app
 function init() {
    inquirer.prompt(questions)
-   //callback function
    .then((answers) => {
     console.log(answers)
     const fileName = 'markDown.md';
@@ -90,5 +81,4 @@ function init() {
 }
 
 
-// Function call to initialize app
 init();
